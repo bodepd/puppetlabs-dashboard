@@ -1,0 +1,6 @@
+Tests can be run with the command:
+
+rake spec
+
+Tests require that puppet and facter are installed
+and available in Ruby's $LOAD_PATH.
