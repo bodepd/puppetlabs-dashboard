@@ -1,5 +1,5 @@
-require 'puppet/dashboard/classifier'
 require 'spec_helper'
+require 'puppet/dashboard/classifier'
 describe Puppet::Dashboard::Classifier do
 
   let :one_element_list do
@@ -36,7 +36,7 @@ describe Puppet::Dashboard::Classifier do
   describe 'with ssl and authentication' do
 
     def expect_list(type, label)
-      Puppet::CloudPack.expects(:http_request).with(
+      Puppet::Dashboard::Classifier.expects(:http_request).with(
           http_mock,
           "/#{label}.json",
           connection_options,
@@ -45,7 +45,7 @@ describe Puppet::Dashboard::Classifier do
     end
 
     def expect_create(type, label, name, data)
-      Puppet::CloudPack.expects(:http_request).with(
+      Puppet::Dashboard::Classifier.expects(:http_request).with(
         http_mock,
         "/#{label}.json",
         connection_options,
